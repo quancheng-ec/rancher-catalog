@@ -1,5 +1,5 @@
 .catalog:
-  name: java-template
+  name: java
   version: 1.0
   description: |
     java application template.
@@ -78,9 +78,10 @@ java-template:
   scale: ${qc_scale}
   retain_ip: true
   health_check:
-    port: 2181
+    port: 10011
     interval: 5000
     unhealthy_threshold: 3
+    strategy: recreate
     request_line: ''
     healthy_threshold: 2
     response_timeout: 5000

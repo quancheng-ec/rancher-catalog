@@ -1,4 +1,4 @@
-java-template:
+java:
   tty: true
   image: ${image}
   environment:
