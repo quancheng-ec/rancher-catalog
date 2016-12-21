@@ -1,0 +1,14 @@
+java-template:
+  tty: true
+  image: ${image}
+  environment:
+    - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
+    - CONSUL_HOST=${CONSUL_HOST}
+    - CONSUL_PORT=${CONSUL_PORT}
+    - CONSUL_CONFIG_ENBALE=true
+    - GRPC_SERVER_HOST=${GRPC_SERVER_HOST}
+    - HTTP_PORT=${HTTP_PORT}
+  labels: 
+    io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.container.hostname_override: container_name
+

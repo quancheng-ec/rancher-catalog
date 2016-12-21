@@ -1,0 +1,86 @@
+.catalog:
+  name: java-template
+  version: 1.0
+  description: |
+    java application template.
+  minimum_rancher_version: v0.59.0
+  maintainer: "Joe Jiao"
+  uuid: qc-0
+  questions:
+    - variable: "image"
+      description: "镜像名称 仓库/镜像名称:版本"
+      label: "镜像名称:"
+      required: true
+      default: ""
+      type: "string"
+    - variable: "qc_scale"
+      description: "实例个数"
+      label: "实例个数:"
+      required: true
+      default: 2
+      type: "int"
+    - variable: "qc_mem"
+      description: "所需的内存大小"
+      label: "Memory (mb):"
+      required: true
+      default: 1024 
+      type: "int"
+    - variable: "cpu_limit"
+      description: "cpu"
+      label: "CPU LIMIT:"
+      required: true
+      default: 1
+      type: "int"
+    - variable: "HTTP_PORT"
+      description: "HTTP_PORT"
+      label: "HTTP PORT:"
+      required: true
+      default: 10000
+      type: "int"
+    - variable: "SPRING_PROFILES_ACTIVE"
+      description: "SPRING_PROFILES_ACTIVE"
+      label: "SPRING PROFILES ACTIVE:"
+      required: true
+      default: "work"
+      type: "string"
+    - variable: "GRPC_SERVER_HOST"
+      description: "GRPC_SERVER_HOST"
+      label: "GRPC SERVER HOST:"
+      required: true
+      default: ""
+      type: "string"
+    - variable: "CONSUL_HOST"
+      description: "CONSUL_HOST"
+      label: "CONSUL 域名:"
+      required: true
+      default: ""
+      type: "string"
+    - variable: "CONSUL_PORT"
+      description: "CONSUL_PORT"
+      label: "CONSUL 端口:"
+      required: true
+      default: 8500
+      type: "int"
+    - variable: "HOST_KEY_1"
+      description: "host env1"
+      label: "HOST ENV 1:"
+      required: true
+      default: ""
+      type: "string"
+    - variable: "HOST_KEY_2"
+      description: "host env2"
+      label: "HOST ENV 2:"
+      required: false
+      default: ""
+      type: "string"
+
+java-template:
+  scale: ${qc_scale}
+  retain_ip: true
+  health_check:
+    port: 2181
+    interval: 5000
+    unhealthy_threshold: 3
+    request_line: ''
+    healthy_threshold: 2
+    response_timeout: 5000
