@@ -1,0 +1,8 @@
+zk_scale=3
+zk_mem=512
+zk_init_limit=10
+zk_data_dir=/opt/zk/data
+zk_max_client_cxns=500
+zk_sync_limit=5
+zk_tick_time=2000
+zk_interval=60
